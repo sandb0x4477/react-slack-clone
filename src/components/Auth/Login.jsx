@@ -49,7 +49,7 @@ class Login extends Component {
       this.setState({ errors: [], loading: true });
       firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
         .then((signedInUser) => {
-          console.log('Login successful', signedInUser);
+          // console.log('Login successful', signedInUser);
           this.setState({ loading: false });
         })
         .catch(error => {
