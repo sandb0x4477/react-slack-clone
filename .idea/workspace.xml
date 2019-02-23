@@ -2,23 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="88364868-0b5f-400d-844d-fbae3041c0c0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Messages/Message.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Messages/MessagesForm.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Messages/MessagesHeader.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/SidePanel/Channels.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/sandb0x.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/sandb0x.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actions/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actions/types.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/types.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Auth/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/Login.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ColorPanel/ColorPanel.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ColorPanel/ColorPanel.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Messages/Message.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Messages/Message.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Messages/Messages.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Messages/Messages.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Messages/MessagesForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Messages/MessagesForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Messages/MessagesHeader.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Messages/MessagesHeader.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SidePanel/Channels.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SidePanel/Channels.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/SidePanel/SidePanel.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SidePanel/SidePanel.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SidePanel/UserPanel.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SidePanel/UserPanel.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/index.jsx" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -37,8 +27,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/Messages/MessagesForm.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="494">
-              <caret line="19" column="25" lean-forward="true" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
+            <state relative-caret-position="676">
+              <caret line="26" column="25" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -46,8 +36,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/Messages/Messages.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1278">
-              <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
+            <state relative-caret-position="2158">
+              <caret line="83" selection-start-line="83" selection-end-line="83" />
             </state>
           </provider>
         </entry>
@@ -55,8 +45,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/Messages/Message.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="12" column="10" lean-forward="true" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="10" />
+            <state relative-caret-position="390">
+              <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -64,8 +54,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/App.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="16" column="31" lean-forward="true" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+            <state relative-caret-position="546">
+              <caret line="21" column="31" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -200,6 +190,7 @@
       <updated>1550614238094</updated>
       <workItem from="1550614239284" duration="29717000" />
       <workItem from="1550720485204" duration="15316000" />
+      <workItem from="1550961167484" duration="599000" />
     </task>
     <task id="LOCAL-00001" summary="UserPanel">
       <created>1550660497600</created>
@@ -212,14 +203,14 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45033000" />
+    <option name="totallyTimeSpent" value="45632000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="817" y="0" width="1110" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.53571427" visible="true" weight="0.19402985" />
-      <window_info active="true" id="Structure" order="1" sideWeight="0.4642857" side_tool="true" visible="true" weight="0.19402985" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.53459823" visible="true" weight="0.19402985" />
+      <window_info active="true" id="Structure" order="1" sideWeight="0.4654018" side_tool="true" visible="true" weight="0.19402985" />
       <window_info id="npm" order="2" sideWeight="0.42745537" side_tool="true" weight="0.19402985" />
       <window_info id="Favorites" order="3" sideWeight="0.3627232" side_tool="true" weight="0.19402985" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -389,29 +380,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Messages/MessagesForm.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="19" column="25" lean-forward="true" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
+        <state relative-caret-position="676">
+          <caret line="26" column="25" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Messages/Messages.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1278">
-          <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
+        <state relative-caret-position="2158">
+          <caret line="83" selection-start-line="83" selection-end-line="83" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/App.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="16" column="31" lean-forward="true" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+        <state relative-caret-position="546">
+          <caret line="21" column="31" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Messages/Message.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="12" column="10" lean-forward="true" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="10" />
+        <state relative-caret-position="390">
+          <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
         </state>
       </provider>
     </entry>

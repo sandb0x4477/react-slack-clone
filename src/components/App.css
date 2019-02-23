@@ -6,6 +6,11 @@ body,
     padding: 1rem;
 }
 
+/* SidePanel.jsx */
+.menu {
+  padding-bottom: 2em;
+}
+
 /* Messages.jsx */
 .messages {
     height: 62vh;
@@ -27,5 +32,18 @@ body,
 .message__own {
     border-left: 2px solid orange;
     padding-left: 8px;
+}
+
+.message__image {
+  padding: 1em;
+}
+
+.ui.image {
+  max-width: 160px;
+}
+
+/* ProgressBar.jsx */
+.progress__bar {
+  margin: 0.3em 0 0 0 !important;
 }
 
