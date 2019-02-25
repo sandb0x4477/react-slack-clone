@@ -12,8 +12,11 @@ class UserPanel extends Component {
   dropdownOptions = () => [
     {
       key: 'user',
-      text:
-        <span>Signed in as <strong>{this.state.user.displayName}</strong></span>,
+      text: (
+        <span>
+          Signed in as <strong>{this.state.user.displayName}</strong>
+        </span>
+      ),
       disabled: true
     },
     {
@@ -27,9 +30,12 @@ class UserPanel extends Component {
   ];
 
   handleSignout = () => {
-    firebase.auth().signOut().then(() => {
-      console.log('User Signed Out');
-    });
+    firebase
+      .auth()
+      .signOut()
+      .then(() => {
+        console.log('User Signed Out');
+      });
   };
 
   render() {
@@ -39,17 +45,21 @@ class UserPanel extends Component {
         <Grid.Column>
           <Grid.Row style={{ padding: '1.2em', margin: 0 }}>
             <Header inverted floated='left' as='h2'>
-              <Icon name='code'/>
+              <Icon name='code' />
               <Header.Content>DevChat</Header.Content>
             </Header>
           </Grid.Row>
 
           <Header inverted as='h4' style={{ padding: '0.25em' }}>
-            <Dropdown trigger={
-              <span>
-                <Image src={user.photoURL} avatar spaced="right"/>
-                {user.displayName}</span>
-            } options={this.dropdownOptions()}/>
+            <Dropdown
+              trigger={
+                <span>
+                  <Image src={user.photoURL} avatar spaced='right' />
+                  {user.displayName}
+                </span>
+              }
+              options={this.dropdownOptions()}
+            />
           </Header>
         </Grid.Column>
       </Grid>

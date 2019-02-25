@@ -1,3 +1,11 @@
 {
-  "editor.cursorStyle": "block"
+  "editor.cursorStyle": "block",
+  "editor.formatOnSave": false,
+  "[javascript]": {
+    "editor.formatOnSave": false
+  },
+  "eslint.autoFixOnSave": false,
+  "eslint.alwaysShowStatus": true,
+  "prettier.disableLanguages": ["js"],
+  "files.autoSave": "onFocusChange"
 }
