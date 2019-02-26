@@ -1,27 +1,88 @@
-import React, { Component } from 'react';
+import React from 'react';
 import uuidv4 from 'uuid/v4';
-import { Button, Input, Segment } from 'semantic-ui-react';
-
 import firebase from '../../firebase';
+import { Segment, Button, Input } from 'semantic-ui-react';
+import { Picker, emojiIndex } from 'emoji-mart';
+import 'emoji-mart/css/emoji-mart.css';
+
 import FileModal from './FileModal';
 import ProgressBar from './ProgressBar';
 
-class MessagesForm extends Component {
+class MessageForm extends React.Component {
   state = {
     storageRef: firebase.storage().ref(),
+    typingRef: firebase.database().ref('typing'),
     uploadTask: null,
     uploadState: '',
     percentUploaded: 0,
-    user: this.props.currentUser,
     message: '',
-    channel: this.props.channel,
-    errors: [],
+    channel: this.props.currentChannel,
+    user: this.props.currentUser,
     loading: false,
-    modal: false
+    errors: [],
+    modal: false,
+    emojiPicker: false
   };
+
+  componentWillUnmount() {
+    if (this.state.uploadTask !== null) {
+      this.state.uploadTask.cancel();
+      this.setState({ uploadTask: null });
+    }
+  }
+
+  openModal = () => this.setState({ modal: true });
+
+  closeModal = () => this.setState({ modal: false });
 
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
+  };
+
+  handleKeyDown = event => {
+    if (event.ctrlKey && event.keyCode === 13) {
+      this.sendMessage();
+    }
+
+    const { message, typingRef, channel, user } = this.state;
+
+    if (message) {
+      typingRef
+        .child(channel.id)
+        .child(user.uid)
+        .set(user.displayName);
+    } else {
+      typingRef
+        .child(channel.id)
+        .child(user.uid)
+        .remove();
+    }
+  };
+
+  handleTogglePicker = () => {
+    this.setState({ emojiPicker: !this.state.emojiPicker });
+  };
+
+  handleAddEmoji = emoji => {
+    const oldMessage = this.state.message;
+    const newMessage = this.colonToUnicode(` ${oldMessage} ${emoji.colons} `);
+    this.setState({ message: newMessage, emojiPicker: false });
+    setTimeout(() => this.messageInputRef.focus(), 0);
+  };
+
+  colonToUnicode = message => {
+    return message.replace(/:[A-Za-z0-9_+-]+:/g, x => {
+      x = x.replace(/:/g, '');
+      let emoji = emojiIndex.emojis[x];
+      if (typeof emoji !== 'undefined') {
+        let unicode = emoji.native;
+        if (typeof unicode !== 'undefined') {
+          return unicode;
+        }
+      }
+      x = ':' + x + ':';
+      return x;
+    });
   };
 
   createMessage = (fileUrl = null) => {
@@ -43,21 +104,27 @@ class MessagesForm extends Component {
 
   sendMessage = () => {
     const { getMessagesRef } = this.props;
-    const { message, channel } = this.state;
+    const { message, channel, user, typingRef } = this.state;
 
     if (message) {
       this.setState({ loading: true });
-      // console.log('message: ', message);
       getMessagesRef()
         .child(channel.id)
         .push()
         .set(this.createMessage())
         .then(() => {
           this.setState({ loading: false, message: '', errors: [] });
+          typingRef
+            .child(channel.id)
+            .child(user.uid)
+            .remove();
         })
-        .catch(error => {
-          console.log('Error', error);
-          this.setState({ loading: false, errors: this.state.concat(error) });
+        .catch(err => {
+          console.error(err);
+          this.setState({
+            loading: false,
+            errors: this.state.errors.concat(err)
+          });
         });
     } else {
       this.setState({
@@ -137,61 +204,69 @@ class MessagesForm extends Component {
       });
   };
 
-  openModal = () => {
-    this.setState({ modal: true });
-  };
-
-  closeModal = () => {
-    this.setState({ modal: false });
-  };
-
   render() {
-    const { loading, errors, message, modal, uploadState, percentUploaded } = this.state;
+    // prettier-ignore
+    const { errors, message, loading, modal, uploadState, percentUploaded, emojiPicker } = this.state;
+
     return (
-      <Segment className='message__from'>
+      <Segment className='message__form'>
+        {emojiPicker && (
+          <Picker
+            set='apple'
+            onSelect={this.handleAddEmoji}
+            className='emojipicker'
+            title='Pick your emoji'
+            emoji='point_up'
+          />
+        )}
         <Input
-          value={message}
           fluid
           name='message'
-          style={{ marginBottom: '0.7em' }}
-          label={<Button icon='add' />}
-          labelPosition='left'
-          placeholder='Write your message'
           onChange={this.handleChange}
+          onKeyDown={this.handleKeyDown}
+          value={message}
+          ref={node => (this.messageInputRef = node)}
+          style={{ marginBottom: '0.7em' }}
+          label={
+            <Button
+              icon={emojiPicker ? 'close' : 'add'}
+              content={emojiPicker ? 'Close' : null}
+              onClick={this.handleTogglePicker}
+            />
+          }
+          labelPosition='left'
           className={
             errors.some(error => error.message.includes('message')) ? 'error' : ''
           }
+          placeholder='Write your message'
         />
         <Button.Group icon widths='2'>
           <Button
-            color={'orange'}
-            content={'Add Reply'}
-            labelPosition={'left'}
-            icon={'edit'}
             onClick={this.sendMessage}
-            loading={loading}
+            disabled={loading}
+            color='orange'
+            content='Add Reply'
+            labelPosition='left'
+            icon='edit'
           />
           <Button
-            color={'teal'}
-            onClick={this.openModal}
-            content={'Upload Media'}
-            labelPosition={'right'}
-            icon={'cloud upload'}
+            color='teal'
             disabled={uploadState === 'uploading'}
+            onClick={this.openModal}
+            content='Upload Media'
+            labelPosition='right'
+            icon='cloud upload'
           />
         </Button.Group>
         <FileModal
           modal={modal}
-          uploadFile={this.uploadFile}
           closeModal={this.closeModal}
+          uploadFile={this.uploadFile}
         />
-        {/* prettier-ignore */}
-        <ProgressBar
-          uploadState={uploadState}
-          percentUploaded={percentUploaded} />
+        <ProgressBar uploadState={uploadState} percentUploaded={percentUploaded} />
       </Segment>
     );
   }
 }
 
-export default MessagesForm;
+export default MessageForm;
