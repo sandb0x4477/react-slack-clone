@@ -36,11 +36,13 @@ class Root extends React.Component {
   }
 
   render() {
-    return this.props.isLoading ? <Spinner/> : (
+    return this.props.isLoading ? (
+      <Spinner />
+    ) : (
       <Switch>
-        <Route path='/' exact component={App}/>
-        <Route path='/login' exact component={Login}/>
-        <Route path='/register' exact component={Register}/>
+        <Route path='/' exact component={App} />
+        <Route path='/login' exact component={Login} />
+        <Route path='/register' exact component={Register} />
       </Switch>
     );
   }
@@ -51,7 +53,11 @@ const mapStateFromProps = state => ({
 });
 
 const RootWithAuth = withRouter(
-  connect(mapStateFromProps, { setUser, clearUser })(Root));
+  connect(
+    mapStateFromProps,
+    { setUser, clearUser }
+  )(Root)
+);
 
 let render = () => {
   ReactDOM.render(
@@ -60,9 +66,9 @@ let render = () => {
         <RootWithAuth />
       </Router>
     </Provider>,
-    document.getElementById("root")
+    document.getElementById('root')
   );
-}
+};
 
 render();
 
@@ -71,7 +77,6 @@ render();
 //     setTimeout(render);
 //   });
 // }
-
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

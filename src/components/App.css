@@ -1,7 +1,7 @@
 html,
 body,
 .app {
-  height: 80vh;
+  height: 95vh;
   background: #eee;
   padding: 1rem;
 }
@@ -49,4 +49,24 @@ body,
 
 .star {
   cursor: pointer;
+}
+
+/* ColorPanel.js */
+.color__container {
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  width: 35px;
+  border-radius: 3px;
+}
+
+.color__square {
+  width: 35px;
+  height: 35px;
+}
+
+.color__overlay {
+  width: 85px;
+  height: 35px;
+  transform: rotate(225deg);
 }

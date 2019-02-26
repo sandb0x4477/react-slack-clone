@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Segment, Comment } from 'semantic-ui-react';
+import { connect } from 'react-redux';
 
 import firebase from '../../firebase';
+import { setUserPosts } from '../../actions';
 import MessagesHeader from './MessagesHeader';
 import MessagesForm from './MessagesForm';
 import Message from './Message';
@@ -34,11 +36,42 @@ class Messages extends Component {
       });
       this.removeListeners(listeners);
       this.addListeners(channel.id);
+      this.addUserStarsListeners(channel.id, user.uid);
     }
   }
 
+  componentWillUnmount() {
+    this.removeListeners(this.state.listeners);
+    this.state.connectedRef.off();
+  }
+
+  addUserStarsListeners = (channelId, userId) => {
+    this.state.usersRef
+      .child(userId)
+      .child('starred')
+      .once('value')
+      .then(data => {
+        if (data.val() !== null) {
+          const channelIds = Object.keys(data.val());
+          const prevStarred = channelIds.includes(channelId);
+          this.setState({ isChannelStarred: prevStarred });
+        }
+      });
+  };
+
   addListeners = channelId => {
     this.addMessageListeners(channelId);
+  };
+
+  addToListeners = (id, ref, event) => {
+    const index = this.state.listeners.findIndex(listener => {
+      return listener.id === id && listener.ref === ref && listener.event === event;
+    });
+
+    if (index === -1) {
+      const newListener = { id, ref, event };
+      this.setState({ listeners: this.state.listeners.concat(newListener) });
+    }
   };
 
   removeListeners = listeners => {
@@ -58,6 +91,22 @@ class Messages extends Component {
       });
     });
     this.countUniqueUsers(loadedMessages);
+    this.countUserPosts(loadedMessages);
+  };
+
+  countUserPosts = messages => {
+    let userPosts = messages.reduce((acc, message) => {
+      if (message.user.name in acc) {
+        acc[message.user.name].count += 1;
+      } else {
+        acc[message.user.name] = {
+          avatar: message.user.avatar,
+          count: 1
+        };
+      }
+      return acc;
+    }, {});
+    this.props.setUserPosts(userPosts);
   };
 
   getMessagesRef = () => {
@@ -159,6 +208,7 @@ class Messages extends Component {
       isPrivateChannel,
       isChannelStarred
     } = this.state;
+
     return (
       <React.Fragment>
         <MessagesHeader
@@ -178,6 +228,7 @@ class Messages extends Component {
               : this.displayMessages(messages)}
           </Comment.Group>
         </Segment>
+
         <MessagesForm
           messagesRef={messagesRef}
           getMessagesRef={this.getMessagesRef}
@@ -190,4 +241,7 @@ class Messages extends Component {
   }
 }
 
-export default Messages;
+export default connect(
+  null,
+  { setUserPosts }
+)(Messages);

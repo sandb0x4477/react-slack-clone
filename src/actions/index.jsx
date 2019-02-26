@@ -22,7 +22,7 @@ export const setCurrentChannel = channel => {
     payload: {
       currentChannel: channel
     }
-  }
+  };
 };
 
 export const setPrivateChannel = isPrivateChannel => {
@@ -31,7 +31,25 @@ export const setPrivateChannel = isPrivateChannel => {
     payload: {
       isPrivateChannel
     }
-  }
+  };
 };
 
+export const setUserPosts = userPosts => {
+  return {
+    type: actionTypes.SET_USER_POSTS,
+    payload: {
+      userPosts
+    }
+  };
+};
 
+/* Colors Actions */
+export const setColors = (primaryColor, secondaryColor) => {
+  return {
+    type: actionTypes.SET_COLORS,
+    payload: {
+      primaryColor,
+      secondaryColor
+    }
+  };
+};

@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="88364868-0b5f-400d-844d-fbae3041c0c0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/components/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Messages/Message.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Messages/Message.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Messages/Messages.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Messages/Messages.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Messages/MessagesForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Messages/MessagesForm.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Messages/MessagesHeader.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Messages/MessagesHeader.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SidePanel/Channels.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SidePanel/Channels.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SidePanel/SidePanel.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SidePanel/SidePanel.jsx" afterDir="false" />
-    </list>
+    <list default="true" id="88364868-0b5f-400d-844d-fbae3041c0c0" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -36,8 +28,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/Messages/Messages.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2158">
-              <caret line="83" selection-start-line="83" selection-end-line="83" />
+            <state relative-caret-position="3406">
+              <caret line="131" selection-start-line="131" selection-end-line="131" />
             </state>
           </provider>
         </entry>
@@ -55,7 +47,7 @@
         <entry file="file://$PROJECT_DIR$/src/components/App.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="546">
-              <caret line="21" column="31" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
+              <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -191,6 +183,7 @@
       <workItem from="1550614239284" duration="29717000" />
       <workItem from="1550720485204" duration="15316000" />
       <workItem from="1550961167484" duration="599000" />
+      <workItem from="1551057575818" duration="2000" />
     </task>
     <task id="LOCAL-00001" summary="UserPanel">
       <created>1550660497600</created>
@@ -203,14 +196,14 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45632000" />
+    <option name="totallyTimeSpent" value="45634000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="817" y="0" width="1110" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.53459823" visible="true" weight="0.19402985" />
-      <window_info active="true" id="Structure" order="1" sideWeight="0.4654018" side_tool="true" visible="true" weight="0.19402985" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.53348213" visible="true" weight="0.19402985" />
+      <window_info active="true" id="Structure" order="1" sideWeight="0.46651787" side_tool="true" visible="true" weight="0.19402985" />
       <window_info id="npm" order="2" sideWeight="0.42745537" side_tool="true" weight="0.19402985" />
       <window_info id="Favorites" order="3" sideWeight="0.3627232" side_tool="true" weight="0.19402985" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -387,15 +380,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Messages/Messages.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2158">
-          <caret line="83" selection-start-line="83" selection-end-line="83" />
+        <state relative-caret-position="3406">
+          <caret line="131" selection-start-line="131" selection-end-line="131" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/App.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="546">
-          <caret line="21" column="31" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
+          <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
         </state>
       </provider>
     </entry>
