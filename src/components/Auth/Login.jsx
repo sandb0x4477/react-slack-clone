@@ -39,30 +39,47 @@ class Login extends Component {
 
   displayErrors = errors => errors.map((error, i) => <p key={i}>{error.message}</p>);
 
-  handleChange = (event) => {
+  handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  handleSubmit = (event) => {
+  handleSubmit = event => {
     event.preventDefault();
     if (this.isFormValid()) {
       this.setState({ errors: [], loading: true });
-      firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
-        .then((signedInUser) => {
+      firebase
+        .auth()
+        .signInWithEmailAndPassword(this.state.email, this.state.password)
+        .then(signedInUser => {
           // console.log('Login successful', signedInUser);
           this.setState({ loading: false });
         })
         .catch(error => {
-          console.log("Error", error);
+          console.log('Error', error);
           this.setState({ errors: this.state.errors.concat(error), loading: false });
         });
     }
   };
 
   handleInputError = (errors, input) => {
-    return errors.some(error =>
-      error.message.toLowerCase()
-        .includes(input)) ? 'error' : '';
+    return errors.some(error => error.message.toLowerCase().includes(input))
+      ? 'error'
+      : '';
+  };
+
+  handleUser1Login = () => {
+    this.setState({ errors: [], loading: true });
+    firebase
+      .auth()
+      .signInWithEmailAndPassword('user1@test.com', 'password')
+      .then(signedInUser => {
+        // console.log('Login successful', signedInUser);
+        this.setState({ loading: false });
+      })
+      .catch(error => {
+        console.log('Error', error);
+        this.setState({ errors: this.state.errors.concat(error), loading: false });
+      });
   };
 
   render() {
@@ -72,24 +89,51 @@ class Login extends Component {
       <Grid textAlign='center' verticalAlign='middle' className='app'>
         <Grid.Column style={{ maxWidth: 450 }}>
           <Header textAlign='center' as='h2' icon color='violet'>
-            <Icon name='code branch' color='violet'/>
+            <Icon name='code branch' color='violet' />
             Login to DevChat
           </Header>
           <Form size='large' onSubmit={this.handleSubmit}>
             <Segment stacked>
-              <Form.Input fluid name='email' icon='mail' iconPosition='left'
-                          placeholder='Email address' type='email' value={email}
-                          onChange={this.handleChange}
-                          className={this.handleInputError(errors, 'email')}
+              <Form.Input
+                fluid
+                name='email'
+                icon='mail'
+                iconPosition='left'
+                placeholder='Email address'
+                type='email'
+                value={email}
+                onChange={this.handleChange}
+                className={this.handleInputError(errors, 'email')}
               />
 
-              <Form.Input fluid name='password' icon='lock' iconPosition='left'
-                          placeholder='Password' type='password' value={password}
-                          onChange={this.handleChange}
-                          className={this.handleInputError(errors, 'password')}
+              <Form.Input
+                fluid
+                name='password'
+                icon='lock'
+                iconPosition='left'
+                placeholder='Password'
+                type='password'
+                value={password}
+                onChange={this.handleChange}
+                className={this.handleInputError(errors, 'password')}
               />
-              <Button className={loading ? 'loading' : ''} disabled={loading}
-                      color='violet' fluid size='large'>Submit</Button>
+              <Button
+                className={loading ? 'loading' : ''}
+                disabled={loading}
+                color='violet'
+                fluid
+                size='large'>
+                Submit
+              </Button>
+              <Button
+                className={loading ? 'loading' : ''}
+                disabled={loading}
+                color='blue'
+                fluid
+                size='large'
+                onClick={this.handleUser1Login}>
+                Login as User1 for testing
+              </Button>
             </Segment>
           </Form>
           {errors.length > 0 && (
@@ -98,7 +142,9 @@ class Login extends Component {
               {this.displayErrors(errors)}
             </Message>
           )}
-          <Message>New user? <Link to='/register'>&nbsp;Register</Link></Message>
+          <Message>
+            New user? <Link to='/register'>&nbsp;Register</Link>
+          </Message>
         </Grid.Column>
       </Grid>
     );
@@ -106,4 +152,3 @@ class Login extends Component {
 }
 
 export default Login;
-
